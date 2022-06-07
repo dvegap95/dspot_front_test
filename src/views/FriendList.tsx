@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
-import Row from "../components/FriendRow";
-import { Friend } from "../types";
-import custom_axios from "../utils/custom_axios";
+import styled from '@emotion/styled';
+import React, { useEffect, useState } from 'react';
+import Row from '../components/FriendRow';
+import { Friend } from '../types';
+import custom_axios from '../utils/custom_axios';
 
-const endpoint = "http://private-5bdb3-friendmock.apiary-mock.com/friends";
+const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends';
 
 const Container = styled.div`
   display: flex;
@@ -26,9 +26,9 @@ export default function FriendList() {
   }, []);
 
   return (
-    <Container >
+    <Container>
       {friends.map((friend) => (
-        <Row friend={friend} key={friend.id}/>
+        <Row friend={friend} key={friend.id} />
       ))}
     </Container>
   );

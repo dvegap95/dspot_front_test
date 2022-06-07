@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "types": ["cypress", "node", "@testing-library/cypress"]
   },
-  "include": ["src", "cypress","node_modules/cypress", "./cypress/**/*.[js,jsx,ts,tsx]"],
+  "include": ["src", "cypress","node_modules/cypress", "./cypress/**/*.[js,jsx,ts,tsx]","./vite.config.ts","./cypress.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

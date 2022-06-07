@@ -1,8 +1,8 @@
-import axios, { AxiosError } from "axios";
+import axios from 'axios';
 
-//middlewares, error checking, etc
+// middlewares, error checking, etc
 
-//error handle interceptor
+// error handle interceptor
 // axios.interceptors.response.use(
 //   (response) => response,
 //   (error: AxiosError) => {

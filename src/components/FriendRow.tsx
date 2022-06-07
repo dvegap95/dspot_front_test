@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Friend } from "../types";
-import defaultUserUrl from "../assets/user.jpg";
+import React from 'react';
+import styled from '@emotion/styled';
+import { Friend } from '../types';
+import defaultUserUrl from '../assets/user.jpg';
 
 const RowContainer = styled.div`
   background: #ffffff;
@@ -34,8 +34,7 @@ const AvailableDot = styled.div`
   left: -6px;
   height: 12px;
   width: 12px;
-  background-color: ${(p: { available?: boolean }) =>
-    p?.available ? "#16BA44" : "#B1B9DB"};
+  background-color: ${(p: { available?: boolean }) => (p?.available ? '#16BA44' : '#B1B9DB')};
   z-index: 2;
   border: 2px solid #ffffff;
   margin: 2px;
@@ -107,18 +106,17 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function FriendRow(
-  props: React.HTMLAttributes<HTMLDivElement> & { friend: Friend }
-) {
+export default function FriendRow(props: { friend: Friend }) {
+  const { friend } = props;
   return (
-    <RowContainer {...props}>
+    <RowContainer>
       <ImageContainer>
-        <AvailableDot available={props.friend.available} />
-        <FriendImg src={/*props.friend.img || */ defaultUserUrl} />
+        <AvailableDot available={friend.available} />
+        <FriendImg src={/* friend.img || */ defaultUserUrl} />
       </ImageContainer>
       <InfoContent>
-        <NameLabel>{props.friend.first_name}</NameLabel>
-        <StatusChip>{props.friend.status}</StatusChip>
+        <NameLabel>{friend.first_name}</NameLabel>
+        <StatusChip>{friend.status}</StatusChip>
       </InfoContent>
       <StyledButton>Details</StyledButton>
     </RowContainer>

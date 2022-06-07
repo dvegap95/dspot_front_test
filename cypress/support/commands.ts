@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -31,8 +32,9 @@
 //       login(email: string, password: string): Chainable<void>
 //       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
 //       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
+//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>):
+// Chainable<Element>
 //     }
 //   }
 // }
-import "@testing-library/cypress/add-commands"
+import '@testing-library/cypress/add-commands';

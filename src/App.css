@@ -1,9 +1,8 @@
 body {
-  height: calc(100vh - 60px);
+  height: 100vh;
   margin: 0;
 }
 
 #root {
-  height: calc(100vh - 60px);
-  margin: 0;
+  height: 100vh;
 }

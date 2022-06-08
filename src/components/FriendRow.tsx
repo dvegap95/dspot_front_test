@@ -1,45 +1,24 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Friend } from '../types';
+import Button from './common/Button';
+import StatusChip from './common/StatusChip';
+import FriendImage from './common/FriendImage';
 import defaultUserUrl from '../assets/user.jpg';
 
 const RowContainer = styled.div`
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(204, 208, 223, 0.5);
   border-radius: 8px;
-  margin: 14px;
+  margin-bottom: 14px;
   display: flex;
   flex-direction: row;
 `;
 
-const FriendImg = styled.img`
-  position: absolute;
+const StyledFriendImg = styled(FriendImage)`
   height: 60px;
   width: 60px;
-  border-radius: 4px;
-  left: 0;
-  top: 0;
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  height: 60px;
-  min-width: 60px;
   margin: 14px;
-`;
-
-const AvailableDot = styled.div`
-  position: absolute;
-  top: -5px;
-  left: -6px;
-  height: 12px;
-  width: 12px;
-  background-color: ${(p: { available?: boolean }) => (p?.available ? '#16BA44' : '#B1B9DB')};
-  z-index: 2;
-  border: 2px solid #ffffff;
-  margin: 2px;
-  border-radius: 12px;
-  box-sizing: border-box;
 `;
 
 const InfoContent = styled.div`
@@ -51,7 +30,7 @@ const InfoContent = styled.div`
 `;
 
 const NameLabel = styled.label`
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -59,66 +38,23 @@ const NameLabel = styled.label`
   margin: 0;
 `;
 
-const StatusChip = styled.label`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 24px;
-  border-radius: 24px;
-  border: 1px solid #b1b9db;
-  color: #b1b9db;
-  padding: 0 10px;
-  width: fit-content;
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  height: 40px;
-  margin: 24px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 20px;
-  gap: 8px;
-  background: #2e57fa;
-  border: 1px solid #0637f9;
-  border-radius: 4px;
-  flex: none;
-  order: 0;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  cursor: pointer;
-  color: #ffffff;
-
-  &:hover {
-    background-color: #0637f9;
-  }
-  &:active {
-    background-color: #052dcc;
-  }
-  &:disabled {
-    background-color: #f8f8fa;
-    border: 1px solid #d0d3da;
-  }
-`;
-
-export default function FriendRow(props: { friend: Friend }) {
+export default function FriendRow(props: {
+  friend: Friend;
+  onClick: () => void;
+}) {
   const { friend } = props;
+  const { onClick } = props;
   return (
     <RowContainer>
-      <ImageContainer>
-        <AvailableDot available={friend.available} />
-        <FriendImg src={/* friend.img || */ defaultUserUrl} />
-      </ImageContainer>
+      <StyledFriendImg
+        available={friend.available}
+        src={/* friend.img || */ defaultUserUrl}
+      />
       <InfoContent>
         <NameLabel>{friend.first_name}</NameLabel>
         <StatusChip>{friend.status}</StatusChip>
       </InfoContent>
-      <StyledButton>Details</StyledButton>
+      <Button onClick={onClick}>Details</Button>
     </RowContainer>
   );
 }

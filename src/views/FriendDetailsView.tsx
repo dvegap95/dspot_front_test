@@ -90,9 +90,10 @@ export default function FriendDetailsView() {
 
   return (
     <Wrapper>
-      <StyledBackButton onClick={() => goBack()} />
+      <StyledBackButton onClick={() => goBack()} data-testid="back_btn" />
       <Container>
         <StyledImage
+          data-testid="friend_profile_pict"
           available={friend.available}
           src={/* friend.img || */ defaultUserUrl}
         />
@@ -109,9 +110,15 @@ export default function FriendDetailsView() {
           style={{ marginBottom: 10 }}
         />
         {selectedTab === 'Info' ? (
-          <FriendDetailsInfo friend={friend} />
+          <FriendDetailsInfo
+            friend={friend}
+            data-testid="friend_details_info"
+          />
         ) : (
-          <FriendDetailsPhotos photos={friend.photos} />
+          <FriendDetailsPhotos
+            photos={friend.photos}
+            data-testid="friend_details_photos"
+          />
         )}
       </Container>
     </Wrapper>

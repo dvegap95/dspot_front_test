@@ -43,8 +43,9 @@ export default function PhotoDialog(
       onClick={(event) => {
         event.stopPropagation();
       }}
+      data-testid="photo_dialog"
     >
-      <StyledCloseBtn onClose={onCancel} />
+      <StyledCloseBtn onClose={onCancel} data-testid="close_btn" />
       <Image src={bigPictUrl} />
     </Dialog>
   );

@@ -9,7 +9,7 @@ import FriendList from './views/FriendListView';
 import FriendDetails from './views/FriendDetailsView';
 
 const Container = styled.div`
-  height: 100%;
+  height: calc(100% - 120px);
 `;
 
 function App() {

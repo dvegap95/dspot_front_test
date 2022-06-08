@@ -4,7 +4,7 @@ import { Friend } from '../types';
 import Button from './common/Button';
 import StatusChip from './common/StatusChip';
 import FriendPicture from './common/FriendPicture';
-import defaultUserUrl from '../assets/no-user-image.jpg';
+import defaultUserUrl from '../assets/no-user-image.svg';
 // import defaultUserUrl from '../assets/user.jpg';
 
 const RowContainer = styled.div`

@@ -12,6 +12,7 @@ const Container = styled.div`
   background: rgba(255, 255, 255, 0.5);
   margin: auto;
   max-width: 700px;
+  border-radius: 8px;
 `;
 
 const FriendsContainer = styled.div`
@@ -21,7 +22,7 @@ const FriendsContainer = styled.div`
   justify-content: flex-start;
   border-radius: 8px;
   overflow-y: auto;
-  height: calc(100vh - 78px); //fullWidth - (tittle + padding)
+  height: calc(100vh - 198px); //fullWidth - (tittle + padding)
   &::-webkit-scrollbar {
     width: 5px;
     color: #b1b9db;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import defaultUserUrl from '../../assets/no-user-image.jpg';
+import defaultUserUrl from '../../assets/big-pict.jpg';
 import PhotoDialog from '../common/PhotoDialog';
 
 const Container = styled.div`
@@ -16,8 +16,8 @@ const Container = styled.div`
 `;
 
 const PhotoPreview = styled.img`
-  width: 136px;
-  height: auto;
+  height: 136px;
+  width: auto;
 `;
 
 const PhotoPreviewContainer = styled.div`
@@ -28,6 +28,7 @@ const PhotoPreviewContainer = styled.div`
   cursor: pointer;
   align-content: center;
   justify-items: center;
+  justify-content: center;
   background-color: black;
   display: grid;
 `;

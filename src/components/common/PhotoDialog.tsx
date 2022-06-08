@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import bigPictUrl from '../../assets/big-pict.jpg';
+import CloseButton from './CloseButton';
 
 const Dialog = styled.div`
   position: fixed;
@@ -13,6 +14,7 @@ const Dialog = styled.div`
   justify-content: center;
   display: ${(props: { open: boolean }) => (props.open ? 'visible' : 'none')};
   background: rgba(55, 62, 90, 0.9);
+  z-index: 3;
 `;
 
 const Image = styled.img`
@@ -20,6 +22,12 @@ const Image = styled.img`
   background: url(image.png);
   filter: drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.3));
   border-radius: 4px;
+`;
+
+const StyledCloseBtn = styled(CloseButton)`
+  position: fixed;
+  right: 60px;
+  top: 60px;
 `;
 
 export default function PhotoDialog(
@@ -32,10 +40,11 @@ export default function PhotoDialog(
   return (
     <Dialog
       {...props}
-      onClick={() => {
-        onCancel();
+      onClick={(event) => {
+        event.stopPropagation();
       }}
     >
+      <StyledCloseBtn onClose={onCancel} />
       <Image src={bigPictUrl} />
     </Dialog>
   );

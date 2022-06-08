@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 import { Friend } from '../types';
 import Button from './common/Button';
 import StatusChip from './common/StatusChip';
-import FriendImage from './common/FriendImage';
-import defaultUserUrl from '../assets/user.jpg';
+import FriendPicture from './common/FriendPicture';
+import defaultUserUrl from '../assets/no-user-image.jpg';
+// import defaultUserUrl from '../assets/user.jpg';
 
 const RowContainer = styled.div`
   background: #ffffff;
@@ -15,7 +16,7 @@ const RowContainer = styled.div`
   flex-direction: row;
 `;
 
-const StyledFriendImg = styled(FriendImage)`
+const StyledFriendImg = styled(FriendPicture)`
   height: 60px;
   width: 60px;
   margin: 14px;

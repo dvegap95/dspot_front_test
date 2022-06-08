@@ -4,10 +4,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from '@emotion/styled';
 import '@fontsource/inter';
-import HomeView from './views/HomeView';
+import './App.css';
+import FriendList from './views/FriendListView';
+import FriendDetails from './views/FriendDetailsView';
 
 const Container = styled.div`
-  height: calc(100vh - 60px);
+  height: 100%;
 `;
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
     <>
       <Container>
         <Routes>
-          <Route path="/" element={<HomeView />} />
+          <Route path="/" element={<FriendList />} />
+          <Route path="/friends" element={<FriendList />} />
+          <Route path="/friends/:id" element={<FriendDetails />} />
         </Routes>
       </Container>
       <ToastContainer />

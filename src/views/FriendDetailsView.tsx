@@ -1,0 +1,93 @@
+import styled from '@emotion/styled';
+import React, { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom'; //for retrieving id from url
+import { FriendDetails } from '../types';
+import defaultUserUrl from '../assets/no-user-image.jpg';
+// import defaultUserUrl from '../assets/user.jpg';
+import custom_axios from '../utils/custom_axios';
+import StatusChip from '../components/common/StatusChip';
+import Tabs from '../components/common/Tabs';
+import FriendPicture from '../components/common/FriendPicture';
+import FriendDetailsInfo from '../components/friend_details/FriendDetailsInfo';
+import FriendDetailsPhotos from '../components/friend_details/FriendDetailsPhotos';
+
+const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends/id';
+
+const Container = styled.div`
+  padding: 60px;
+  margin: auto;
+  max-width: 600px;
+`;
+
+const StyledImage = styled(FriendPicture)`
+  height: 150px;
+  width: 150px;
+  margin-bottom: 13px;
+  .available-dot {
+    border-width: 5px;
+    left: -11px;
+    top: -11px;
+  }
+`;
+
+const NameLabel = styled.label`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+  color: #000000;
+`;
+
+const InfoContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+`;
+
+const StyledStatusChip = styled(StatusChip)`
+  margin-bottom: 30px;
+`;
+
+export default function FriendDetailsView() {
+  const [friend, setFriend] = useState({} as FriendDetails);
+  const [selectedTab, setSelectedTab] = useState('Info');
+  // const { id } = useParams(); //woud be friend id in a functional api
+
+  useEffect(() => {
+    custom_axios.get(endpoint).then((resp) => {
+      setFriend(resp.data);
+    });
+  }, []);
+
+  return (
+    <Container>
+      <StyledImage
+        available={friend.available}
+        src={/* friend.img || */ defaultUserUrl}
+      />
+      <InfoContent>
+        <NameLabel>{friend.first_name}</NameLabel>
+        <StyledStatusChip>
+          {friend.statuses && friend.statuses[0]}
+        </StyledStatusChip>
+      </InfoContent>
+      <Tabs
+        tabs={['Info', 'Photos']}
+        tabValue={selectedTab}
+        onTabChange={setSelectedTab}
+        style={{ marginBottom: 10 }}
+      />
+      {selectedTab === 'Info' ? (
+        <FriendDetailsInfo friend={friend} />
+      ) : (
+        <FriendDetailsPhotos photos={friend.photos} />
+      )}
+    </Container>
+  );
+}

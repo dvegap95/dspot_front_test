@@ -20,16 +20,17 @@ const ImageContainer = styled.div`
 
 const AvailableDot = styled.div`
   position: absolute;
-  top: -5px;
-  left: -6px;
-  height: 12px;
-  width: 12px;
+  top: -10%;
+  left: -10%;
+  height: 20%;
+  max-height: 23px;
+  width: 20%; //keep aspect ratio in both cases of use
+  max-width: 23px;
   background-color: ${(p: { available?: boolean }) =>
     p?.available ? '#16BA44' : '#B1B9DB'};
-  z-index: 2;
-  border: 2px solid #ffffff;
+  border: 2.5px solid #ffffff;
   margin: 2px;
-  border-radius: 12px;
+  border-radius: 100px;
   box-sizing: border-box;
 `;
 
@@ -42,8 +43,8 @@ export default function FriendImage(
   const { src, available } = props;
   return (
     <ImageContainer {...props}>
-      <StyledImg src={src} />
-      <AvailableDot available={available} />
+      <StyledImg src={src} className="friend-photo" />
+      <AvailableDot available={available} className="available-dot" />
     </ImageContainer>
   );
 }

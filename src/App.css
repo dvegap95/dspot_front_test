@@ -4,9 +4,31 @@ html {
 }
 
 body {
+  /* position and size */
   margin: 0;
   min-height: 100%;
-  background-color: #ffffff50;
   padding-top: 60px;
   box-sizing: border-box;
+
+  /* text general styling */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+
+  background-color: #ffffff50;
+}
+
+/* scroll bar style */
+.scroll-view::-webkit-scrollbar {
+  width: 5px;
+  color: #b1b9db;
+}
+.scroll-view::-webkit-scrollbar-track {
+  background: #b1b9db30;
+  border-radius: 8px;
+}
+.scroll-view::-webkit-scrollbar-thumb {
+  background: #b1b9db;
+  border-radius: 8px;
 }

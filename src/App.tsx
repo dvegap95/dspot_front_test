@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from '@emotion/styled';
 import '@fontsource/inter';
@@ -14,16 +13,14 @@ const Container = styled.div`
 
 function App() {
   return (
-    <>
-      <Container>
-        <Routes>
-          <Route path="/" element={<FriendList />} />
-          <Route path="/friends" element={<FriendList />} />
-          <Route path="/friends/:id" element={<FriendDetails />} />
-        </Routes>
-      </Container>
-      <ToastContainer />
-    </>
+    <Container>
+      <Routes>
+        <Route path="/" element={<FriendList />} />
+        <Route path="/friends" element={<FriendList />} />
+        {/* route receives url parameter :id */}
+        <Route path="/friends/:id" element={<FriendDetails />} />
+      </Routes>
+    </Container>
   );
 }
 

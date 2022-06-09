@@ -1,17 +1,22 @@
+// standard back button
+
 import React from 'react';
 import styled from '@emotion/styled';
 import backUrl from '../../assets/back.svg';
 
-const Button = styled.button`
+const StyledButton = styled.button`
+  // container functions
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  //position and size
   position: absolute;
-  width: 44px;
-  height: 44px;
   left: 20px;
   top: 20px;
+  width: 44px;
+  height: 44px;
 
   background: #ffffff;
   border-radius: 8px;
@@ -20,11 +25,13 @@ const Button = styled.button`
 `;
 
 export default function BackButton(
+  // extend button propTypes for props pass-through
   props: React.HTMLAttributes<HTMLButtonElement>,
 ) {
   return (
-    <Button {...props}>
+    <StyledButton {...props}>
+      {/* back arrow image */}
       <img src={backUrl} alt="back" />
-    </Button>
+    </StyledButton>
   );
 }

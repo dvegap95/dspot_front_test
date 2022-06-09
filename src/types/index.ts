@@ -1,3 +1,4 @@
+// interfaces for common handled data types
 export interface Friend {
   id: number;
   img: string;

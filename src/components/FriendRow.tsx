@@ -1,46 +1,49 @@
+// row for displaying friend's resumed information and controls
+
 import React from 'react';
 import styled from '@emotion/styled';
 import { Friend } from '../types';
 import Button from './common/Button';
 import StatusChip from './common/StatusChip';
-import FriendPicture from './common/FriendPicture';
-import defaultUserUrl from '../assets/no-user-image.svg';
-// import defaultUserUrl from '../assets/user.jpg';
+import ProfilePicture from './common/ProfilePicture';
+// square image to apreciate border rounding
+import defaultUserUrl from '../assets/no-user-image.jpg';
 
 const RowContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 14px;
+
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(204, 208, 223, 0.5);
   border-radius: 8px;
-  margin-bottom: 14px;
-  display: flex;
-  flex-direction: row;
 `;
 
-const StyledFriendImg = styled(FriendPicture)`
+// ProfilePicture styled for positioning
+const StyledFriendImg = styled(ProfilePicture)`
   height: 60px;
   width: 60px;
   margin: 14px;
 `;
 
+// card middle ground for name and status
 const InfoContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
   margin: 14px 0;
   width: 100%;
 `;
 
 const NameLabel = styled.label`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
   margin: 0;
 `;
 
 export default function FriendRow(props: {
-  friend: Friend;
+  friend: Friend; // friend information to show
   onClick: () => void;
 }) {
   const { friend } = props;

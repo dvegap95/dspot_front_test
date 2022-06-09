@@ -1,32 +1,36 @@
+// detailed view of a single friend information
+
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useParams } from 'react-router-dom'; //for retrieving id from url
 import { FriendDetails } from '../types';
-import defaultUserUrl from '../assets/no-user-image.svg';
-// import defaultUserUrl from '../assets/user.jpg';
+import defaultUserUrl from '../assets/no-user-image.jpg';
 import custom_axios from '../utils/custom_axios';
 import StatusChip from '../components/common/StatusChip';
 import Tabs from '../components/common/Tabs';
-import FriendPicture from '../components/common/FriendPicture';
+import ProfilePicture from '../components/common/ProfilePicture';
 import FriendDetailsInfo from '../components/friend_details/FriendDetailsInfo';
 import FriendDetailsPhotos from '../components/friend_details/FriendDetailsPhotos';
 import BackButton from '../components/common/BackButton';
 
+// endpoint to fetch friend detailed information
 const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends/id';
 
 const Container = styled.div`
   padding: 60px;
   margin: auto;
   max-width: 600px;
+
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
 `;
 
-const StyledImage = styled(FriendPicture)`
+const StyledImage = styled(ProfilePicture)`
   height: 150px;
   width: 150px;
   margin-bottom: 13px;
+
+  //available dot repositioning through classes
   .available-dot {
     border-width: 5px;
     left: -11px;
@@ -35,27 +39,38 @@ const StyledImage = styled(FriendPicture)`
 `;
 
 const NameLabel = styled.label`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 31px;
   display: flex;
   align-items: center;
   text-align: center;
+
   margin: 10px 0;
+
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+
   color: #000000;
 `;
 
+// container for name and status
 const InfoContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
   width: 100%;
 `;
 
 const StyledStatusChip = styled(StatusChip)`
   margin-bottom: 30px;
+`;
+
+// silent container for the whole view, including back button
+const Wrapper = styled.div`
+  padding: 0 124px;
+  position: relative;
+  margin: auto;
+  max-width: 848px;
 `;
 
 const StyledBackButton = styled(BackButton)`
@@ -64,25 +79,16 @@ const StyledBackButton = styled(BackButton)`
   left: 0px;
 `;
 
-const Wrapper = styled.div`
-  padding: 0 124px;
-  position: relative;
-  margin: auto;
-  max-width: 848px;
-`;
-
 export default function FriendDetailsView() {
-  const [friend, setFriend] = useState({} as FriendDetails);
-  const [selectedTab, setSelectedTab] = useState('Info');
-  // const { id } = useParams(); //woud be friend id in a functional api
+  const [friend, setFriend] = useState({} as FriendDetails); // current friend info
+  const [selectedTab, setSelectedTab] = useState('Info'); // controlled tab model
+  // const { id } = useParams(); //would be friend's actual id taken from url as a parameter
+  // if api were fully functional
 
   const navigate = useNavigate();
 
-  function goBack() {
-    navigate('/friends');
-  }
-
   useEffect(() => {
+    // fetch data on start
     custom_axios.get(endpoint).then((resp) => {
       setFriend(resp.data);
     });
@@ -90,7 +96,10 @@ export default function FriendDetailsView() {
 
   return (
     <Wrapper>
-      <StyledBackButton onClick={() => goBack()} data-testid="back_btn" />
+      <StyledBackButton
+        onClick={() => navigate('/friends')}
+        data-testid="back_btn"
+      />
       <Container>
         <StyledImage
           data-testid="friend_profile_pict"
@@ -104,11 +113,12 @@ export default function FriendDetailsView() {
           </StyledStatusChip>
         </InfoContent>
         <Tabs
-          tabs={['Info', 'Photos']}
+          tabs={['Info', 'Photos']} // tabs list
           tabValue={selectedTab}
           onTabChange={setSelectedTab}
           style={{ marginBottom: 10 }}
         />
+        {/* display a view acording to tab //todo animate transitions */}
         {selectedTab === 'Info' ? (
           <FriendDetailsInfo
             friend={friend}

@@ -3,7 +3,7 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
 import bigPictUrl from '../../assets/big-pict.jpg';
-import PhotoDialog from '../common/PhotoDialog';
+import PhotoDialog from '../PhotoDialog';
 
 // container card
 const Card = styled.div`

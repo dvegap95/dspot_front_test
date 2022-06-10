@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import backUrl from '../../assets/back.svg';
+import backUrl from '../assets/back.svg';
 
 const StyledButton = styled.button`
   // container functions

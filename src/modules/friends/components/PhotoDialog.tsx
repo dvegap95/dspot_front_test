@@ -2,7 +2,7 @@
 
 import styled from '@emotion/styled';
 import React from 'react';
-import bigPictUrl from '../../assets/big-pict.jpg';
+import bigPictUrl from '../assets/big-pict.jpg';
 import CloseButton from './CloseButton';
 
 const Dialog = styled.div`

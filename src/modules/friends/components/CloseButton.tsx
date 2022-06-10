@@ -2,7 +2,7 @@
 
 import styled from '@emotion/styled';
 import React from 'react';
-import closeUrl from '../../assets/close.svg';
+import closeUrl from '../assets/close.svg';
 
 const StyledBtn = styled.button`
   // container functions

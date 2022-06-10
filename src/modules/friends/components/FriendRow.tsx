@@ -3,9 +3,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Friend } from '../types';
-import Button from './common/Button';
-import StatusChip from './common/StatusChip';
-import ProfilePicture from './common/ProfilePicture';
+import Button from '../../../common/components/Button';
+import StatusChip from './StatusChip';
+import ProfilePicture from './ProfilePicture';
 // square image to apreciate border rounding
 import defaultUserUrl from '../assets/no-user-image.jpg';
 

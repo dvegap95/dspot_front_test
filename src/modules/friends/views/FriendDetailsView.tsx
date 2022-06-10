@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { FriendDetails } from '../types';
 import defaultUserUrl from '../assets/no-user-image.jpg';
 import custom_axios from '../utils/custom_axios';
-import StatusChip from '../components/common/StatusChip';
-import Tabs from '../components/common/Tabs';
-import ProfilePicture from '../components/common/ProfilePicture';
+import StatusChip from '../components/StatusChip';
+import Tabs from '../../../common/components/Tabs';
+import ProfilePicture from '../components/ProfilePicture';
 import FriendDetailsInfo from '../components/friend_details/FriendDetailsInfo';
 import FriendDetailsPhotos from '../components/friend_details/FriendDetailsPhotos';
-import BackButton from '../components/common/BackButton';
+import BackButton from '../components/BackButton';
 
 // endpoint to fetch friend detailed information
 const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends/id';

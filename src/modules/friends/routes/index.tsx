@@ -4,6 +4,10 @@ import FriendDetailsView from '../views/FriendDetailsView';
 
 export default [
   {
+    path: '/', // only for demo, default should be home
+    element: <FriendListView />,
+  },
+  {
     path: '/friends',
     element: <FriendListView />,
   },

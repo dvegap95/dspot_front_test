@@ -89,9 +89,12 @@ export default function FriendDetailsView() {
 
   useEffect(() => {
     // fetch data on start
-    custom_axios.get(endpoint).then((resp) => {
-      setFriend(resp.data);
-    });
+    custom_axios
+      .get(endpoint)
+      .then((resp) => {
+        setFriend(resp.data);
+      })
+      .catch((e) => console.error(e)); // todo handle error with user feedback
   }, []);
 
   return (

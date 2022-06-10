@@ -1,3 +1,4 @@
+export {}; // for isolatedModules namespace
 describe('e2e tests', () => {
   beforeEach(() => {
     cy.intercept(

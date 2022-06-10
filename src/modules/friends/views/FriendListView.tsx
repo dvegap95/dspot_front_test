@@ -55,9 +55,12 @@ export default function FriendList() {
 
   useEffect(() => {
     // fetch data on start
-    custom_axios.get(endpoint).then((resp) => {
-      setFriends(resp.data);
-    });
+    custom_axios
+      .get(endpoint)
+      .then((resp) => {
+        setFriends(resp.data);
+      })
+      .catch((e) => console.error(e)); // todo handle error with user feedback
   }, []);
 
   return (

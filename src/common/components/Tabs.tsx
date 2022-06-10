@@ -1,5 +1,6 @@
 // standard controlled tabs component
-// todo decorate selected with a div instead of with border-bottom in order to perform animations
+// todo decorate selected with an independent element instead of with border-bottom in
+// todo order to perform animations
 import styled from '@emotion/styled';
 import React from 'react';
 

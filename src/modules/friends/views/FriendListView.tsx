@@ -7,7 +7,7 @@ import { Friend } from '../types';
 import custom_axios from '../utils/custom_axios';
 
 // endpoint to fetch friend detailed information
-const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends';
+const endpoint = 'https://private-5bdb3-friendmock.apiary-mock.com/friends';
 
 const Container = styled.div`
   margin: auto;

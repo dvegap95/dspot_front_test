@@ -2,7 +2,7 @@ export {}; // for isolatedModules namespace
 describe('e2e tests', () => {
   beforeEach(() => {
     cy.intercept(
-      'http://private-5bdb3-friendmock.apiary-mock.com/friends/id',
+      'https://private-5bdb3-friendmock.apiary-mock.com/friends/id',
     ).as('request');
   });
   it('navigates by buttons and url', () => {

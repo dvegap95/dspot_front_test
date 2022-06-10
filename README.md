@@ -71,7 +71,7 @@ npm run test:ui
 ```
 
 ## Technical Specifications
-- See the [Technical Specifications](./docs/Technical%20specifications.odt) as a reference to project scalability, maintainability and reliability.
+- See the [Technical Specifications](https://docs.google.com/document/d/1B1P5Lhw2WguoFemcGkuLXSv78quKzBdBYGvey2lxiL8/edit?usp=sharing) as a reference to project scalability, maintainability and reliability.
 ## Future work
 - Add [Redux](https://redux.js.org/) for global state management as it's usually needed inside big applications.
 

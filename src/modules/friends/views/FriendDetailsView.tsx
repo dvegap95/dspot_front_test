@@ -14,7 +14,7 @@ import FriendDetailsPhotos from '../components/friend_details/FriendDetailsPhoto
 import BackButton from '../components/BackButton';
 
 // endpoint to fetch friend detailed information
-const endpoint = 'http://private-5bdb3-friendmock.apiary-mock.com/friends/id';
+const endpoint = 'https://private-5bdb3-friendmock.apiary-mock.com/friends/id';
 
 const Container = styled.div`
   padding: 60px;
